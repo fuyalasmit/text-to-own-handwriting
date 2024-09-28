@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.controls {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.editable-area-wrapper {
+    transform: scale(0.7);
+    transform-origin: top left;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.editable-area {
+    position: relative;
+    --font-size: 24px;
+    width: 816px;
+    height: 1056px;
+    font-size: var(--font-size);
+    line-height: 1.5;
+    background-color: white;
+    border: 1px solid #ddd;
+    overflow: auto;
+}
+
+.editable-area.with-lines {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px);
+    background-size: 100% calc(var(--font-size) * 1.5);
+    background-position: 0 calc(var(--font-size) * 0.2);
+}
+
+
+.content {
+    padding-left: 14px; 
+    padding-top: 14px;
+}
+
+
+.with-margin .content {
+    margin-left: 60px; 
+    margin-top: 36px;
+}

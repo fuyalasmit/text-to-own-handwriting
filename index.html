@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Text to Own Handwriting</title>
+</head>
+
+<body class="bg-gray-100">
+    <nav class="flex justify-between items-center p-4 bg-white shadow-md">
+        <h1 class="text-3xl font-bold text-gray-800 ">Text to Own Handwriting</h1>
+        <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200 ">
+            <!-- Sun Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sun-icon text-yellow-500 hidden" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <!-- Moon Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 moon-icon text-gray-900" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </nav>
+    <div class="controls">
+        <label>
+            <input type="checkbox" id="toggleLines" checked>
+            Show background lines
+        </label>
+        <label>
+            <input type="checkbox" id="toggleMargin" checked>
+            Show margin
+        </label>
+    </div>
+    <div class="editable-area-wrapper">
+        <div id="mainText" contenteditable="true" class="editable-area with-lines">
+            <div class="margin-overlay"></div>
+            <div class="content">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, pariatur! Tenetur nisi ad velit
+                repellat. Dignissimos vel voluptas quam consequatur quibusdam officia labore, optio eligendi minima? At
+                mollitia consequuntur in enim accusantium, odit fugiat?
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
