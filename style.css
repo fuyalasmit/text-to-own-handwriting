@@ -8,15 +8,19 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.intro{
+    margin: 25px 25px 40px 25px;
+}
+
 .controls {
     margin: 10px 0;
     text-align: center;
 }
 
 .main-area {
-    /* transform: scale(0.9); */
+    transform: scale(0.8);
     transform-origin: top left;
-    width: 816px;
+    margin-left: 20px;
 }
 
 .editable-area {
@@ -40,27 +44,71 @@ body {
     height: 0;
     background-color: white;
     z-index: 1;
-    transition: height 0.3s ease;
 }
 
 .editable-area.with-lines {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255, 108, 108, 0.3) 1px, transparent 1px);
     background-size: 100% calc(var(--font-size) * 1.5);
-    /* background-position: 0 calc(var(--font-size) * 0.2); */
+}
+
+.margin-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    border-right: 1.8px solid rgba(0, 0, 0, 0.3); 
+    z-index: 1;
+    display: none;
+
+}
+
+.editable-area.with-margin .margin-overlay {
+    display: block;
 }
 
 .content {
-    padding-left: 14px;
+    padding-left: 17px;
     padding-top: 9px;
     position: relative;
     z-index: 2;
+    padding-right: 5px;
+    outline: none;
 }
 
 .editable-area.with-margin::before {
-    height: calc(var(--font-size) * 3);
+    height: calc(var(--font-size) * 3.1);
+    border-bottom: 1.8px solid rgba(0, 0, 0, 0.3);
 }
 
 .editable-area.with-margin .content {
-    padding-left: 84px; /* 60px + 14px */
+    padding-left: 86px; /* 60px + 14px */
     padding-top: calc(var(--font-size) * 1.5 + 46px);
+    padding-right: 3px;
+}
+
+
+@font-face {
+    font-family: 'Handwriting1';
+    src: url('./fonts/handwriting1.ttf') format('truetype');
+    
+}
+
+@font-face {
+    font-family: 'Handwriting2';
+    src: url('./fonts/handwriting2.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Handwriting3';
+    src: url('./fonts/handwriting3.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Handwriting4';
+    src: url('./fonts/handwriting4.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Handwriting5';
+    src: url('./fonts/handwriting5.ttf') format('truetype');
 }

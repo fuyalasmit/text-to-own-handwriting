@@ -33,23 +33,59 @@
             </svg>
         </button>
     </nav>
-    <div class="controls">
-        <label>
-            <input type="checkbox" id="toggleLines" checked>
-            Show background lines
-        </label>
-        <label>
-            <input type="checkbox" id="toggleMargin" checked>
-            Show margin
-        </label>
+    <div class="intro  text-center text-gray-800">
+        Text to Own Handwriting converter is a free online tool for converting your computer texts into human
+        handwriting text and downloading them as image or PDF for different handwriting font types, ink colors and
+        papers.
     </div>
-    <div class="main-area">
-        <div id="mainText" contenteditable="true" class="editable-area">
-            <div class="content">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, eius.
+    <main class="flex flex-row">
+        <div class="main-area">
+            <div id="mainText"  class="editable-area">
+                <div class="margin-overlay"></div>
+                <div class="content" contenteditable="true" >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eveniet assumenda, incidunt
+                    necessitatibus, nulla dolor placeat perspiciatis ducimus odio temporibus totam culpa sunt
+                </div>
             </div>
         </div>
-    </div>
+        <div class="customization w-1/3 ">
+            <div class="controls flex gap-10 ">
+                <label>
+                    <input type="checkbox" id="toggleLines" checked>
+                    Show background lines
+                </label>
+                <label>
+                    <input type="checkbox" id="toggleMargin" checked>
+                    Show margin
+                </label>
+            </div>
+            <div class="font-color">
+                <label for="fontColor">Font Color:</label>
+                <select id="fontColor" class="p-2 border rounded">
+                    <option value="black">Black</option>
+                    <option value="blue">Blue</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                </select>
+            </div>
+
+            <div class="font-choose">
+                <label for="preuploadedFonts">Choose Handwriting:</label>
+                <select id="preuploadedFonts" class="p-2 border rounded">
+                    <option value="handwriting1">Handwriting 1</option>
+                    <option value="handwriting2">Handwriting 2</option>
+                    <option value="handwriting3">Handwriting 3</option>
+                    <option value="handwriting4">Handwriting 4</option>
+                    <option value="handwriting5">Handwriting 5</option>
+                </select></select>
+            </div>
+            <div class="font-upload" >
+                <label for="uploadFont">Upload Your Handwriting:</label>
+                <input type="file" id="uploadFont" class="p-2 border rounded" accept=".ttf,.otf">
+            </div>
+
+        </div>
+    </main>
     <script src="script.js"></script>
 </body>
 
