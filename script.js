@@ -1,13 +1,14 @@
-const fontFamilies = ['Handwriting1', 'Handwriting2', 'Handwriting3', 'Handwriting4', 'Handwriting5'];
+const fontFamilies = ['handwriting1', 'handwriting2', 'handwriting3', 'handwriting4', 'handwriting5'];
 
 Promise.all(fontFamilies.map(font => 
-    new FontFace(font, `url('./fonts/${font.toLowerCase()}.ttf')`).load()
+    new FontFace(font, `url('./fonts/${font}.ttf')`).load()
 )).then(fonts => {
     fonts.forEach(font => document.fonts.add(font));
     console.log("All fonts have been loaded and added to the document.");
 }).catch(error => {
     console.error("Error loading fonts:", error);
 });
+
 
 let darkMode = document.getElementById("darkModeToggle");
 darkMode.addEventListener("click", () => {
@@ -37,6 +38,22 @@ fontColorSelect.addEventListener('change', function() {
     contentArea.style.color = this.value;
 });
 
+const fontSelect = document.getElementById('preuploadedFonts');
+
+function applyFont(fontFamily) {
+    contentArea.style.fontFamily = fontFamily;
+    contentArea.style.fontSize = fontSizes[fontFamily]; // Adjust size dynamically
+}
+
+window.onload = function() {
+    const defaultFont = 'handwriting1'; // Set handwriting1 as the default font
+    contentArea.style.fontFamily = defaultFont;
+};
+
+fontSelect.addEventListener('change', function() {
+    const selectedFont = this.value;
+    contentArea.style.fontFamily = selectedFont;
+});
 
 
 
