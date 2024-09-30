@@ -45,7 +45,7 @@ body {
 }
 
 .main-div{
-    height: 925px;
+    height: 1020px;
 }
 
 .side{
@@ -53,7 +53,7 @@ body {
 }
 
 .main-area {
-    transform: scale(0.85);
+    transform: scale(0.95);
     transform-origin: top left;
     /* width: 50vw; */
 }
@@ -61,12 +61,13 @@ body {
 .editable-area {
     --font-size: 24px;
     width: 816px;
-    height: 1056px;
+    height: 1020px;
     font-size: var(--font-size);
     line-height: 1.5;
     background-color: white;
     border: 1px solid #ddd;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
 }
 
@@ -92,7 +93,7 @@ body {
     top: 0;
     left: 0;
     width: 80px;
-    height: 1056px;
+    height: 1020px;
     border-right: 1.8px solid rgba(0, 0, 0, 0.3); 
     z-index: 1;
     display: none;
@@ -121,9 +122,8 @@ body {
 }
 
 .editable-area.with-margin .content {
-    padding-left: 86px; /* 60px + 14px */
-    padding-top: 86px; /* 60px + 14px */
-    /* padding-top: calc(var(--font-size) * 1.5 + 50px); */
+    padding-left: 86px; 
+    padding-top: 86px; 
     padding-right: 3px;
 }
 
@@ -160,3 +160,56 @@ body {
     opacity: 1;
 }
 
+.image-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.image-container .img-wrapper {
+    margin: 10px;
+    text-align: center;
+    display: inline-block;
+}
+
+.image-container img {
+    width: 250px;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 3px 6px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 7px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+}
+
+.download-btn:hover {
+    background-color: #45a049;
+}
+
+.remove-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 3px 6px;
+    background-color:  #e63946;
+    color: white;
+    border-radius: 7px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+}
+
+.remove-btn:hover {
+    background-color: #d62828;
+}
+
+
+.kofi-button:hover img {
+    filter: brightness(0.95); 
+
+}

@@ -1,5 +1,7 @@
 const fontFamilies = ['handwriting1', 'handwriting2', 'handwriting3', 'handwriting4', 'handwriting5'];
 
+
+
 Promise.all(fontFamilies.map(font => 
     new FontFace(font, `url('./fonts/${font}.ttf')`).load()
 )).then(fonts => {
@@ -157,3 +159,122 @@ lineShiftSlider.addEventListener('input', function() {
     editableArea.style.backgroundPositionY = `${shiftValue}px`;
 });
 
+
+document.getElementById('generate-btn').addEventListener('click', function() {
+    const mainText = document.getElementById('mainText');
+
+    // Check for vertical overflow
+    if (mainText.scrollHeight > mainText.clientHeight) {
+        alert('Warning: Some text may be cut off in the generated image due to overflow.');
+    }
+
+    htmlToImage.toPng(mainText, {
+        quality: 1.0,
+        backgroundColor: '#ffffff'  // Ensure white background
+    })
+    .then(function (dataUrl) {
+        const img = new Image();
+        img.src = dataUrl;
+        img.style.display = 'block';
+        img.style.maxWidth = 'none';
+        // img.style.height = '300px';
+
+        // Create a container for the image and download button
+        const imgWrapper = document.createElement('div');
+        imgWrapper.classList.add('img-wrapper');
+
+        // Append the image to the wrapper
+        imgWrapper.appendChild(img);
+        // Create the remove button
+        const removeBtn = document.createElement('a');
+        removeBtn.innerHTML = 'Remove';
+        removeBtn.classList.add('remove-btn');  // Use the same CSS class as download button
+
+        // Add event listener to remove the image and buttons
+        removeBtn.addEventListener('click', function() {
+            imgWrapper.remove();
+        });
+
+        // Add a gap or margin between remove and download buttons
+        removeBtn.style.marginRight = '10px';
+        removeBtn.style.cursor = 'pointer';
+        imgWrapper.appendChild(removeBtn);
+        // Create the download button
+        const downloadBtn = document.createElement('a');
+        downloadBtn.href = dataUrl;
+        downloadBtn.download = 'generated-image.png';
+        downloadBtn.innerHTML = 'Download';
+        downloadBtn.classList.add('download-btn');  // Use CSS class
+
+        imgWrapper.appendChild(downloadBtn);
+
+        const imageContainer = document.querySelector('.image-container');
+        imageContainer.appendChild(imgWrapper);
+
+        // Update the image count
+        const imageCountElement = document.getElementById('imageCount');
+        const currentCount = parseInt(imageCountElement.textContent, 10);
+        imageCountElement.textContent = currentCount + 1;
+    })
+    .catch(function (error) {
+        console.error('Error generating image:', error);
+    });
+});
+
+
+document.getElementById('download-pdf-btn').addEventListener('click', function() {
+    const imageContainer = document.querySelector('.image-container');
+    const images = imageContainer.querySelectorAll('img');
+    
+    if (images.length === 0) {
+        alert('No images to download.');
+        return;
+    }
+
+    const pdfName = prompt('Enter the name for the PDF file:', 'generated-images');
+    if (!pdfName) {
+        alert('PDF name cannot be empty.');
+        return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    images.forEach((img, index) => {
+        if (index > 0) {
+            doc.addPage();
+        }
+        const imgData = img.src;
+        const imgWidth = doc.internal.pageSize.getWidth();
+        const imgHeight = doc.internal.pageSize.getHeight();
+        doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+    });
+
+    doc.save(`${pdfName}.pdf`);
+});
+
+
+
+document.querySelector('.coffee-image img').addEventListener('click', function() {
+    const kofiButton = document.querySelector('.kofi-button');
+    kofiButton.scrollIntoView({ behavior: 'smooth' });
+
+    // Function to toggle the shadow effect
+    function toggleShadow(times) {
+        if (times > 0) {
+            kofiButton.style.transition = 'box-shadow 0.3s ease-in-out';
+            kofiButton.style.boxShadow = '0 0 10px 5px rgba(255, 165, 0, 0.7)';
+            kofiButton.style.borderRadius = '75%'; // Ensure the shadow is rounded
+
+            setTimeout(() => {
+                kofiButton.style.boxShadow = 'none';
+                setTimeout(() => {
+                    toggleShadow(times - 1);
+                }, 300); // Delay before the shadow comes back
+            }, 700); // Duration of the shadow effect
+        }
+    }
+
+    // Start the shadow effect toggling
+    toggleShadow(2);
+});
