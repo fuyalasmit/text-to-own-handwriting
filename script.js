@@ -157,5 +157,3 @@ lineShiftSlider.addEventListener('input', function() {
     editableArea.style.backgroundPositionY = `${shiftValue}px`;
 });
 
-
-

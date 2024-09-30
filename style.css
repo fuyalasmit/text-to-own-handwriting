@@ -55,7 +55,7 @@ body {
 .main-area {
     transform: scale(0.85);
     transform-origin: top left;
-    width: 50vw;
+    /* width: 50vw; */
 }
 
 .editable-area {
