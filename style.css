@@ -4,6 +4,32 @@
     box-sizing: border-box;
 }
 
+
+@font-face {
+    font-family: 'handwriting1';
+    src: url('./fonts/handwriting1.ttf') format('truetype');
+    
+}
+
+@font-face {
+    font-family: 'handwriting2';
+    src: url('./fonts/handwriting2.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'handwriting3';
+    src: url('./fonts/handwriting3.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'handwriting4';
+    src: url('./fonts/handwriting4.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'handwriting5';
+    src: url('./fonts/handwriting5.ttf') format('truetype');
+}
+
 body {
     font-family: Arial, sans-serif;
 }
