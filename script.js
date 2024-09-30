@@ -151,24 +151,11 @@ const lineShiftValue = document.getElementById('lineShiftValue');
 // Update the background position when the slider is moved
 lineShiftSlider.addEventListener('input', function() {
     const shiftValue = this.value;
-    lineShiftValue.textContent = `${shiftValue}px`;
+    lineShiftValue.textContent = `${shiftValue}`;
 
     // Apply the background position adjustment for the lines
     editableArea.style.backgroundPositionY = `${shiftValue}px`;
 });
 
 
-// const editableArea1 = document.querySelector('.editable-area.with-lines');
 
-// // Select the line height input and value display elements
-// const bgHeightSlider = document.getElementById('bgHeight');
-// const bgHeightValue = document.getElementById('bgHeightValue');
-
-// // Update the background line height when the slider is moved
-// bgHeightSlider.addEventListener('input', function() {
-//     const bgHeight = this.value;
-//     bgHeightValue.textContent = bgHeight;
-
-//     // Apply the new background line height
-//     editableArea1.style.backgroundSize = `100% calc(var(--font-size) * ${bgHeight})`;
-// });

@@ -13,7 +13,7 @@
 <body class="bg-gray-100">
     <nav class="flex justify-between items-center p-4 bg-white shadow-md">
         <h1 class="text-3xl font-bold text-gray-800">Text to Own Handwriting</h1>
-        <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200">
+        <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200 ">
             <!-- Sun Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sun-icon text-yellow-500 hidden" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -34,14 +34,14 @@
             </svg>
         </button>
     </nav>
-    <div class="intro  text-center text-gray-800">
+    <p class="intro  text-center text-gray-800">
         Text to Own Handwriting converter is a free online tool for converting your computer texts into human
         handwriting text and downloading them as image or PDF for different handwriting font types, ink colors and
         papers.
-    </div>
-    <main class="flex flex-row">
-        <div class="main-area">
-            <div id="mainText" class="editable-area">
+    </p>
+    <main class="main-div flex flex-row lg:nowrap justify-around gap-5 ">
+        <div class="main-area ">
+            <div id="mainText" class="editable-area  rounded-sm ">
                 <div class="margin-overlay"></div>
                 <div class="content" contenteditable="true">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, reprehenderit fuga iusto
@@ -61,100 +61,119 @@
                     accusamus aperiam? Perspiciatis, ipsum illum.
                 </div>
             </div>
-        </div>
-        <div class="customization w-1/3 ">
-            <div>
-                How to use>>?
-                <ol>
-                    <li>gg</li>
-                    <li>gg</li>
-                    <li>gg</li>
-                    <li>gg</li>
-                </ol>
-            </div>
-            <span>Customization</span>
-            <small>(Optional)</small>
-            <div class="controls flex flex-col items-start gap-5 ">
-                <label>
-                    <input type="checkbox" id="toggleLines" checked>
-                    Show background lines
-                </label>
-                <label>
-                    <input type="checkbox" id="toggleMargin" checked>
-                    Show margin
-                </label>
-            </div>
-            <div class="font-color">
-                <label for="fontColor">Font Color:</label>
-                <select id="fontColor" class="p-2 border rounded">
-                    <option value="black">Black</option>
-                    <option value="blue">Blue</option>
-                    <option value="red">Red</option>
-                    <option value="green">Green</option>
-                </select>
-            </div>
+        </div>      
+        <div class="side lg:w-1/3 bg-white p-6 rounded-lg shadow-md">
+            <div class="how-to-use  bg-white p-6 rounded-lg shadow-md">
+                <div class="mb-2">
+                    <h2 class="text-lg font-semibold mb-2 text-gray-800">How to use?</h2>
+                    <ul class="list-decimal list-inside text-gray-600 space-y-1">
+                        <li>Type or paste things in the paper.</li>
+                        <li>You can easily download image or pdf, scrolling a bit down</li>
+                        <li>You can also customize the text color, size but make sure to see info button beside the tool you
+                            are using</li>
+                        <li>You can also using your own handwriting font, by making it through differnt sites like
+                            calligraphr</li>
+                    </ul>
+                </div>
+            </div> 
+            <div class="m-2">
 
-            <div class="font-choose">
-                <label for="preuploadedFonts">Choose Handwriting:</label>
-                <select id="preuploadedFonts" class="p-2 border rounded">
-                    <option value="handwriting1">Handwriting 1</option>
-                    <option value="handwriting2">Handwriting 2</option>
-                    <option value="handwriting3">Handwriting 3</option>
-                    <option value="handwriting4">Handwriting 4</option>
-                    <option value="handwriting5">Handwriting 5</option>
-                </select></select>
             </div>
-            <div class="font-upload">
-                <label for="uploadFont">Upload Your Handwriting:</label>
-                <input type="file" id="uploadFont" class="p-2 border rounded" accept=".ttf,.otf">
-            </div>
-
-            <div class="flex flex-row gap-3">
-
-                <div class="flex flex-col">
+            <div class="customization  bg-white p-6 rounded-lg shadow-md"> 
+                <div class="mb-2">
+                    <h3 class="text-lg font-semibold  text-gray-800 inline">Customization</h3>
+                    <small class="text-gray-600 ">(Optional)</small>
+                </div>
+    
+                <div class="controls flex flex-col items-start gap-2 border border-slate-300 rounded-md pl-3 py-1">
+                    <label>
+                        <input type="checkbox" id="toggleLines" checked>
+                        <span class="ml-1 text-gray-800">Show Background Paper Lines</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="toggleMargin" checked>
+                        <span class="ml-1 text-gray-800">Show margin</span>
+                    </label>
+                </div>
+    
+                <div class="font-color flex  gap-3 content-center mb-3 mt-3">
+                    <label for="fontColor" class=" text-gray-800 mb-1">Font Color:</label>
+                    <select id="fontColor" class="px-1.5 border border-gray-300 bg-slate-50 hover:bg-slate-100   cursor-pointer rounded-lg ">
+                        <option value="black">Black</option>
+                        <option value="blue">Blue</option>
+                        <option value="red">Red</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+    
+                <div class="flex flex-col items-start gap-2 border border-slate-300 rounded-md p-3 mb-3 ">
+                    <div class="font-choose flex gap-4 ">
+                        <label for="preuploadedFonts text-gray-800 mb-1">Choose Handwriting:</label>
+                        <select id="preuploadedFonts" class=" border border-gray-300 bg-slate-50 hover:bg-slate-100   cursor-pointer rounded-lg">
+                            <option value="handwriting1">Handwriting 1</option>
+                            <option value="handwriting2">Handwriting 2</option>
+                            <option value="handwriting3">Handwriting 3</option>
+                            <option value="handwriting4">Handwriting 4</option>
+                            <option value="handwriting5">Handwriting 5</option>
+                        </select>
+                    </div>
+                    <div class="font-upload">
+                        <label for="uploadFont" class=" text-gray-800 mb-1">Upload Your Handwriting Font:</label>
+                        <input type="file" id="uploadFont"
+                            class=" text-xs text-gray-500 file:mr-4 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-sm file:font-light file:bg-blue-50 file:text-blue-800 hover:file:bg-blue-100">
+                    </div>
+                </div>
+    
+    
+                <div class=" flex flex-row justify-between items-start border border-slate-300 rounded-md p-3 pr-0 mb-3 ">
+                    <div class="flex flex-col gap-3">
+                        <div class="flex items-center">
+                            <label for="fontSize" class="mr-2">Font Size:</label>
+                            <input type="range" id="fontSize" min="14" max="40" value="24" class="mr-3">
+                            <span id="fontSizeValue">24px</span>
+                        </div>
+                        <div class="line-shift">
+                            <label for="lineShift" class="mr-2">Change Background Line Position: </label>
+                            <input type="range" id="lineShift" min="-40" max="40" value="0" class="mr-2">
+                            <span id="lineShiftValue">0</span>
+                        </div>
+                    </div>
+                    <div class="tooltip ml-2">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="tooltiptext"> After adjusting font size, make sure to shift background lines as per need. </span>
+                    </div>
+                </div>
+    
+                <div class=" flex flex-row justify-between border border-slate-300 rounded-md p-2 pr-0 mb-3">
                     <div class="flex items-center">
-                        <label for="fontSize" class="mr-2">Font Size:</label>
-                        <input type="range" id="fontSize" min="12" max="40" value="24" class="mr-2">
-                        <span id="fontSizeValue">24px</span>
+                        <label for="lineHeight" class="mr-2">Line Height:</label>
+                        <input type="range" id="lineHeight" min="0.5" max="3" step="0.1" value="1.5" class="mr-3">
+                        <span id="lineHeightValue">1.5</span>
                     </div>
-                    <div class="line-shift">
-                        <label for="lineShift" class="mr-2">Shift Background Lines:</label>
-                        <input type="range" id="lineShift" min="-50" max="50" value="0" class="mr-2">
-                        <span id="lineShiftValue">0px</span>
+    
+                    <div class="tooltip ml-2">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="tooltiptext">Change line height with no background lines, else it will be a mess.</span>
                     </div>
-
                 </div>
-                <div class="tooltip ml-2">
-                    <i class="fas fa-info-circle"></i>
-                    <span class="tooltiptext">After adjusting font size, make sure to shift background lines as per
-                        need.</span>
-                </div>
+    
             </div>
-
-            <div class="no-bg flex flex-row gap-3">
-
-                <div class="flex items-center">
-                    <label for="lineHeight" class="mr-2">Line Height:</label>
-                    <input type="range" id="lineHeight" min="0.5" max="3" step="0.1" value="1.5" class="mr-2">
-                    <span id="lineHeightValue">1.5</span>
-                </div>
-
-                <div class="tooltip ml-2">
-                    <i class="fas fa-info-circle"></i>
-                    <span class="tooltiptext">Make sure to use this with no background lines, else it will be a
-                        mess.</span>
-                </div>
-            </div>
-
-            <!-- <div class="bg-height">
-                <label for="bgHeight" class="mr-2">Adjust Line Height:</label>
-                <input type="range" id="bgHeight" min="1" max="3" step="0.1" value="1.5" class="mr-2">
-                <span id="bgHeightValue">1.5</span>
-            </div> -->
-        </div>
-
+            
+        </div>  
     </main>
+    <div class=" flex justify-center mt-3 mb-3">
+        <button id="generate-btn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-2xl shadow-lg hover:bg-blue-700 transition-all duration-200">
+            Generate Image
+        </button>
+    </div>
+    
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 </body>
 
 </html>
+
+
+
+

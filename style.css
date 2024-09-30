@@ -44,10 +44,18 @@ body {
     text-align: center;
 }
 
+.main-div{
+    height: 925px;
+}
+
+.side{
+    height: 97%;
+}
+
 .main-area {
-    transform: scale(0.9);
+    transform: scale(0.85);
     transform-origin: top left;
-    margin-left: 20px;
+    width: 50vw;
 }
 
 .editable-area {
@@ -84,7 +92,7 @@ body {
     top: 0;
     left: 0;
     width: 80px;
-    height: 100%;
+    height: 1056px;
     border-right: 1.8px solid rgba(0, 0, 0, 0.3); 
     z-index: 1;
     display: none;
@@ -120,17 +128,19 @@ body {
 }
 
 
-
-
 .tooltip {
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
     cursor: pointer;
+    bottom: 19px;
+    left: 6px;
+    z-index: 10;
 }
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 200px;
+    width: 130px;
+    font-size: 13px;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -138,9 +148,9 @@ body {
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
+    bottom: 100%;
     left: 50%;
-    margin-left: -100px;
+    margin-left: -130px;
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -149,3 +159,4 @@ body {
     visibility: visible;
     opacity: 1;
 }
+
