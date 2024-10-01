@@ -11,10 +11,36 @@ Promise.all(fontFamilies.map(font =>
     console.error("Error loading fonts:", error);
 });
 
-let darkMode = document.getElementById("darkModeToggle");
-darkMode.addEventListener("click", () => {
-    alert("This feature will be available soon!");
+// let darkMode = document.getElementById("darkModeToggle");
+// darkMode.addEventListener("click", () => {
+//     alert("This feature will be available soon!");
+// });
+const darkModeToggle = document.getElementById("darkModeToggle");
+const html = document.documentElement;
+
+darkModeToggle.addEventListener("click", () => {
+    html.classList.toggle('dark');
+    updateDarkModeIcon();
+    updateEditableAreaBackground();
 });
+
+function updateDarkModeIcon() {
+    const sunIcon = darkModeToggle.querySelector('.sun-icon');
+    const moonIcon = darkModeToggle.querySelector('.moon-icon');
+    
+    if (html.classList.contains('dark')) {
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+    } else {
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+    }
+}
+
+
+// Call this function on page load to set the correct icon
+updateDarkModeIcon();
+
 
 const toggleLines = document.getElementById('toggleLines');
 const toggleMargin = document.getElementById('toggleMargin');
@@ -72,17 +98,43 @@ fontSelect.addEventListener('change', function() {
     applyFont(selectedFont);
 });
 
+// fontSizeSlider.addEventListener('input', function() {
+//     const fontSize = this.value;
+//     const currentFont = fontSelect.value;
+//     fontSizes[currentFont] = `${fontSize}px`;
+//     applyFont(currentFont);
+// });
+
 fontSizeSlider.addEventListener('input', function() {
+    // Store the current scroll position
+    const scrollTop = window.scrollY;
+    
     const fontSize = this.value;
     const currentFont = fontSelect.value;
     fontSizes[currentFont] = `${fontSize}px`;
     applyFont(currentFont);
+
+    // Restore the scroll position
+    window.scrollTo(0, scrollTop);
 });
 
+
+// lineHeightSlider.addEventListener('input', function() {
+//     const lineHeight = this.value;
+//     contentArea.style.lineHeight = lineHeight;
+//     lineHeightValue.textContent = lineHeight;
+// });
+
 lineHeightSlider.addEventListener('input', function() {
+    // Store the current scroll position
+    const scrollTop = window.scrollY;
+    
     const lineHeight = this.value;
     contentArea.style.lineHeight = lineHeight;
     lineHeightValue.textContent = lineHeight;
+
+    // Restore the scroll position
+    window.scrollTo(0, scrollTop);
 });
 
 

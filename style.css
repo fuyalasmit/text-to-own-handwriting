@@ -50,11 +50,13 @@ body {
 
 .side{
     height: 95%;
+    /* height: auto; */
+    /* height: 1020px; */
 }
 
 .main-area {
     transform: scale(0.95);
-    transform-origin: top left;
+    transform-origin: top ;
 }
 
 .editable-area {
@@ -68,6 +70,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
+    color: black; 
 }
 
 .editable-area::before {
@@ -268,4 +271,63 @@ body {
         transform-origin: center;
         margin: 0 auto;
     }
+}
+
+.dark body {
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+.dark .bg-white {
+    background-color: #2d3748;
+}
+
+.dark .text-gray-800 {
+    color: #e2e8f0;
+}
+
+.dark .text-gray-600 {
+    color: #a0aec0;
+}
+
+.dark .border-gray-200 {
+    border-color: #4a5568;
+}
+
+.dark .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark .bg-blue-600 {
+    background-color: #4299e1;
+}
+
+.dark .bg-green-600 {
+    background-color: #38a169;
+}
+
+.dark .hover\:bg-blue-700:hover {
+    background-color: #3182ce;
+}
+
+.dark .hover\:bg-green-700:hover {
+    background-color: #2f855a;
+}
+
+.dark .editable-area {
+    background-color: white; /* Keep the paper white in dark mode */
+    border-color: #4a5568;
+    color: black; /* Ensure text remains black */
+}
+
+.dark .editable-area.with-lines {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+}
+
+.dark .margin-overlay {
+    border-right-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark .editable-area.with-margin::before {
+    border-bottom-color: rgba(0, 0, 0, 0.3);
 }
