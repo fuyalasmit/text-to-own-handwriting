@@ -8,7 +8,7 @@
 @font-face {
     font-family: 'handwriting1';
     src: url('./fonts/handwriting1.ttf') format('truetype');
-    
+
 }
 
 @font-face {
@@ -20,6 +20,7 @@
     font-family: 'handwriting3';
     src: url('./fonts/handwriting3.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'handwriting4';
     src: url('./fonts/handwriting4.ttf') format('truetype');
@@ -35,7 +36,7 @@ body {
 }
 
 
-.intro{
+.intro {
     margin: 25px 25px 40px 25px;
 }
 
@@ -44,19 +45,19 @@ body {
     text-align: center;
 }
 
-.main-div{
+.main-div {
     height: 1020px;
 }
 
-.side{
-    height: 95%;
+.side {
+    /* height: 95%; */
     /* height: auto; */
-    /* height: 1020px; */
+    height: 1020px;
 }
 
 .main-area {
     transform: scale(0.95);
-    transform-origin: top ;
+    transform-origin: top;
 }
 
 .editable-area {
@@ -70,7 +71,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-    color: black; 
+    color: black;
 }
 
 .editable-area::before {
@@ -86,7 +87,8 @@ body {
 
 .editable-area.with-lines {
     background-image: linear-gradient(rgba(255, 108, 108, 0.3) 1px, transparent 1px);
-    background-size: 100% calc(var(--font-size) * 1.5); /* Initial value */
+    background-size: 100% calc(var(--font-size) * 1.5);
+    /* Initial value */
 }
 
 
@@ -96,7 +98,7 @@ body {
     left: 0;
     width: 80px;
     height: 1020px;
-    border-right: 1.8px solid rgba(0, 0, 0, 0.3); 
+    border-right: 1.8px solid rgba(0, 0, 0, 0.3);
     z-index: 1;
     display: none;
 
@@ -124,8 +126,8 @@ body {
 }
 
 .editable-area.with-margin .content {
-    padding-left: 86px; 
-    padding-top: 86px; 
+    padding-left: 86px;
+    padding-top: 86px;
     padding-right: 3px;
 }
 
@@ -198,7 +200,7 @@ body {
     display: inline-block;
     margin-top: 10px;
     padding: 3px 6px;
-    background-color:  #e63946;
+    background-color: #e63946;
     color: white;
     border-radius: 7px;
     text-decoration: none;
@@ -212,17 +214,18 @@ body {
 
 
 .kofi-button:hover img {
-    filter: brightness(0.95); 
+    filter: brightness(0.95);
 
 }
 
 @media (max-width: 640px) {
 
-    .main-div{
+    .main-div {
         flex-direction: row;
         flex-wrap: wrap;
     }
-      .side {
+
+    .side {
         width: 100%;
         height: auto;
     }
@@ -235,11 +238,12 @@ body {
     .editable-area {
         width: 100%;
         min-width: 100%;
-        overflow-y:hidden;
+        overflow-y: hidden;
     }
 
     .margin-overlay {
-        width: 50px; /* Adjust margin overlay width for smaller screens */
+        width: 50px;
+        /* Adjust margin overlay width for smaller screens */
     }
 }
 
@@ -273,6 +277,9 @@ body {
     }
 }
 
+/* ... (previous styles remain the same) ... */
+
+/* Dark mode styles */
 .dark body {
     background-color: #1a202c;
     color: #e2e8f0;
@@ -315,9 +322,9 @@ body {
 }
 
 .dark .editable-area {
-    background-color: white; /* Keep the paper white in dark mode */
+    background-color: white;
     border-color: #4a5568;
-    color: black; /* Ensure text remains black */
+    color: black;
 }
 
 .dark .editable-area.with-lines {
@@ -331,3 +338,161 @@ body {
 .dark .editable-area.with-margin::before {
     border-bottom-color: rgba(0, 0, 0, 0.3);
 }
+
+/* Improved dropdown and button styles for dark mode */
+.dark select,
+.dark input[type="file"]::file-selector-button {
+    background-color: #4a5568;
+    color: #e2e8f0;
+    border-color: #718096;
+}
+
+.dark select:hover,
+.dark input[type="file"]::file-selector-button:hover {
+    background-color: #2d3748;
+}
+
+/* Scrollbar styles for dark mode */
+.dark ::-webkit-scrollbar {
+    width: 12px;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #2d3748;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background-color: #4a5568;
+    border-radius: 6px;
+    border: 3px solid #2d3748;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background-color: #718096;
+}
+
+/* For Firefox */
+.dark * {
+    scrollbar-color: #4a5568 #2d3748;
+}
+
+
+/* Styles for range input (sliders) */
+input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none   ;
+    width: 85%;
+    height: 5px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+/* Slider thumb styles */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3b82f6;
+    /* Blue color for light mode */
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3b82f6;
+    /* Blue color for light mode */
+    cursor: pointer;
+}
+
+/* Dark mode styles */
+.dark input[type="range"] {
+    background: #4a5568;
+    /* Darker background for the slider track in dark mode */
+}
+
+.dark input[type="range"]::-webkit-slider-thumb {
+    background: #a0aec0;
+    /* Softer gray color for dark mode */
+}
+
+.dark input[type="range"]::-moz-range-thumb {
+    background: #a0aec0;
+    /* Softer gray color for dark mode */
+}
+
+/* Hover effects */
+input[type="range"]:hover {
+    opacity: 1;
+}
+
+.dark input[type="range"]:hover::-webkit-slider-thumb {
+    background: #cbd5e0;
+    /* Lighter gray on hover in dark mode */
+}
+
+.dark input[type="range"]:hover::-moz-range-thumb {
+    background: #cbd5e0;
+    /* Lighter gray on hover in dark mode */
+}
+
+/* ... (previous styles remain the same) ... */
+
+/* Checkbox styles */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #3b82f6; /* Blue color for light mode */
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #3b82f6; /* Blue color for light mode */
+}
+
+input[type="checkbox"]:checked::after {
+    content: '\2714'; /* Checkmark symbol */
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Dark mode checkbox styles */
+.dark input[type="checkbox"] {
+    border-color: #a0aec0; /* Softer gray color for dark mode */
+}
+
+.dark input[type="checkbox"]:checked {
+    background-color: #a0aec0; /* Softer gray color for dark mode */
+}
+
+/* Hover effects */
+input[type="checkbox"]:hover {
+    border-color: #2563eb; /* Darker blue on hover in light mode */
+}
+
+.dark input[type="checkbox"]:hover {
+    border-color: #cbd5e0; /* Lighter gray on hover in dark mode */
+}
+
+.dark input[type="checkbox"]:checked:hover {
+    background-color: #cbd5e0; /* Lighter gray on hover in dark mode */
+}
+

@@ -30,7 +30,7 @@
 
 
 <body class="bg-gray-100 dark:bg-dark-bg transition-colors duration-200">
-    <nav class="flex justify-between items-center p-4 bg-white dark:bg-dark-primary shadow-md transition-colors duration-200">
+    <nav class="flex justify-between items-center p-4 bg-white dark:bg-dark-secondary shadow-md transition-colors duration-200">
         <h1 class="text-3xl font-bold text-gray-800 dark:text-dark-text">Text to Own Handwriting</h1>
         <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-dark-secondary transition-colors duration-200">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sun-icon text-yellow-500 dark:block hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -109,9 +109,8 @@
                 </div>
 
                 <div class="font-color flex  gap-3 content-center mb-3 mt-3">
-                    <label for="fontColor" class=" text-gray-800 mb-1">Font Color:</label>
-                    <select id="fontColor"
-                        class="px-1.5 border border-gray-300 bg-slate-50 hover:bg-slate-100   cursor-pointer rounded-lg ">
+                    <label for="fontColor" class=" text-gray-800 dark:text-gray-200  mb-1">Ink Color:</label>
+                    <select id="fontColor" class="px-1.5 border border-gray-300 dark:border-gray-600 bg-slate-50 dark:bg-gray-700 hover:bg-slate-100 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 cursor-pointer rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400">
                         <option value="black">Black</option>
                         <option value="blue">Blue</option>
                         <option value="red">Red</option>
@@ -119,11 +118,10 @@
                     </select>
                 </div>
 
-                <div class="flex flex-col items-start gap-2 border border-slate-300 rounded-md p-3 mb-3 ">
-                    <div class="font-choose flex gap-4 ">
-                        <label for="preuploadedFonts text-gray-800 mb-1">Choose Handwriting:</label>
-                        <select id="preuploadedFonts"
-                            class=" border border-gray-300 bg-slate-50 hover:bg-slate-100   cursor-pointer rounded-lg">
+                <div class="flex flex-col items-start gap-2 border border-slate-300 dark:border-gray-600 rounded-md p-3 mb-3">
+                    <div class="font-choose flex gap-4">
+                        <label for="preuploadedFonts" class="text-gray-800 dark:text-gray-200 mb-1">Choose Handwriting:</label>
+                        <select id="preuploadedFonts" class="border border-gray-300 dark:border-gray-600 bg-slate-50 dark:bg-gray-700 hover:bg-slate-100 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 cursor-pointer rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400">
                             <option value="handwriting1">Handwriting 1</option>
                             <option value="handwriting2">Handwriting 2</option>
                             <option value="handwriting3">Handwriting 3</option>
@@ -132,18 +130,18 @@
                         </select>
                     </div>
                     <div class="font-upload">
-                        <label for="uploadFont" class=" text-gray-800 mb-1">Upload Your Handwriting Font:</label>
-                        <input type="file" id="uploadFont"
-                            class=" text-xs text-gray-500 file:mr-4 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-sm file:font-light file:bg-blue-50 file:text-blue-800 hover:file:bg-blue-100">
+                        <label for="uploadFont" class="text-gray-800 dark:text-gray-200 mb-1">Upload Your Own Handwriting Font:</label>
+                        <input type="file" id="uploadFont" class="text-xs text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-sm file:font-light file:bg-blue-50 dark:file:bg-blue-900 file:text-blue-800 dark:file:text-blue-200 hover:file:bg-blue-100 dark:hover:file:bg-blue-800">
                     </div>
                 </div>
+        
 
 
                 <div
                     class=" flex flex-row justify-between items-start border border-slate-300 rounded-md p-3 pr-0 mb-3 ">
                     <div class="flex flex-col gap-3">
                         <div class="flex items-center">
-                            <label for="fontSize" class="mr-2">Font Size:</label>
+                            <label for="fontSize" class="mr-2">Letter Size:</label>
                             <input type="range" id="fontSize" min="14" max="40" value="24" class="mr-3">
                             <span id="fontSizeValue">24px</span>
                         </div>
@@ -162,7 +160,7 @@
 
                 <div class=" flex flex-row justify-between border border-slate-300 rounded-md p-2 pr-0 mb-3">
                     <div class="flex items-center">
-                        <label for="lineHeight" class="mr-2">Line Height:</label>
+                        <label for="lineHeight" class="mr-2">Line Gap:</label>
                         <input type="range" id="lineHeight" min="0.5" max="3" step="0.1" value="1.5" class="mr-3">
                         <span id="lineHeightValue">1.5</span>
                     </div>

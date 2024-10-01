@@ -29,14 +29,13 @@ function updateDarkModeIcon() {
     const moonIcon = darkModeToggle.querySelector('.moon-icon');
     
     if (html.classList.contains('dark')) {
-        sunIcon.classList.add('hidden');
-        moonIcon.classList.remove('hidden');
-    } else {
         sunIcon.classList.remove('hidden');
         moonIcon.classList.add('hidden');
+    } else {
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
     }
 }
-
 
 // Call this function on page load to set the correct icon
 updateDarkModeIcon();
