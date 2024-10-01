@@ -326,7 +326,6 @@ document.getElementById('download-pdf-btn').addEventListener('click', function()
 });
 
 
-
 document.querySelector('.coffee-image img').addEventListener('click', function() {
     const kofiButton = document.querySelector('.kofi-button');
     kofiButton.scrollIntoView({ behavior: 'smooth' });
@@ -335,7 +334,11 @@ document.querySelector('.coffee-image img').addEventListener('click', function()
     function toggleShadow(times) {
         if (times > 0) {
             kofiButton.style.transition = 'box-shadow 0.3s ease-in-out';
-            kofiButton.style.boxShadow = '0 0 10px 5px rgba(255, 165, 0, 0.7)';
+            if (document.documentElement.classList.contains('dark')) {
+                kofiButton.style.boxShadow = '0 0 4px 4px rgba(0, 255, 255, 0.4)'; // Cyan shadow for dark mode
+            } else {
+                kofiButton.style.boxShadow = '0 0 10px 5px rgba(255, 165, 0, 0.7)'; // Orange shadow for light mode
+            }
             kofiButton.style.borderRadius = '75%'; // Ensure the shadow is rounded
 
             setTimeout(() => {
