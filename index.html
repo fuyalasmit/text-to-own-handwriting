@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Own Handwriting Converter | Free Online Tool</title>
+    <meta name="description" content="Convert your text to realistic handwriting with our free online tool. Customize fonts, colors, and paper styles. Download as image or PDF. Try it now!">
+    <link rel="canonical" href="https://texttoownhandwriting.netlify.app/">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="./images/icon.png">
-    <title>Text to Own Handwriting</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://texttoownhandwriting.netlify.app/">
+    <meta property="og:title" content="Text to Own Handwriting Converter | Free Online Tool">
+    <meta property="og:description" content="Transform your digital text into personalized handwriting. Customize fonts, colors, and paper styles. Free to use, no sign-up required!">
+    <meta property="og:image" content="https://texttoownhandwriting.netlify.app/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://texttoownhandwriting.netlify.app/">
+    <meta property="twitter:title" content="Text to Own Handwriting Converter | Free Online Tool">
+    <meta property="twitter:description" content="Transform your digital text into personalized handwriting. Customize fonts, colors, and paper styles. Free to use, no sign-up required!">
+    <meta property="twitter:image" content="https://texttoownhandwriting.netlify.app/images/twitter-image.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Text to Own Handwriting Converter",
+      "description": "Convert your text to realistic handwriting with customizable fonts, colors, and paper styles. Download as image or PDF.",
+      "url": "https://texttoownhandwriting.netlify.app/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -30,8 +62,9 @@
 </head>
 
 
+
 <body class="bg-gray-100 dark:bg-dark-bg transition-colors duration-200">
-    <nav
+    <header
         class="flex justify-between items-center p-4 bg-white dark:bg-dark-secondary shadow-md transition-colors duration-200">
         <h1 class="text-3xl font-bold text-gray-800 dark:text-dark-text">Text to Own Handwriting</h1>
         <button id="darkModeToggle"
@@ -55,7 +88,7 @@
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
         </button>
-    </nav>
+    </header>
     <p class="intro text-center text-gray-800 dark:text-dark-text">
         Text to Own Handwriting converter is a free online tool for converting your computer texts into human
         handwriting text and downloading them as image or PDF for different handwriting font types, ink colors and
@@ -69,7 +102,7 @@
                 <div class="content" contenteditable="true">
                     <p>Welcome to Text to Own Handwriting Converter.</p>
                     <br>
-                    <p>Type or paste your text below to see it transformed into your own handwriting style.</p>
+                    <p>Type or paste your text below to see it transformed into human handwriting style.</p>
                     <br>
                     <p>Explore the customization options to adjust font, color, and more.</p>
                     <br>
@@ -229,6 +262,10 @@
             <img src="./images/buymeacoffee.png" alt="Buy Me a Coffee" style="height: 38px;">
         </a>
     </div>
+
+    <!-- <footer class="bg-white p-4 mt-10 text-center"></footer>
+        <p>&copy; 2024 Text to Own Handwriting Converter. All rights reserved.</p>
+    </footer> -->
 
 
     <script src="script.js"></script>
