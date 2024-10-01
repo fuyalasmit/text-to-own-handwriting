@@ -350,7 +350,6 @@ document.querySelector('.coffee-image img').addEventListener('click', function()
         }
     }
 
-    // Start the shadow effect toggling
     toggleShadow(2);
 });
 

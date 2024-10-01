@@ -493,6 +493,6 @@ input[type="checkbox"]:hover {
 }
 
 .dark input[type="checkbox"]:checked:hover {
-    background-color: #cbd5e0; /* Lighter gray on hover in dark mode */
+    background-color: #cbd5e0; 
 }
 
