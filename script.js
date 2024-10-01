@@ -18,12 +18,7 @@ Promise.all(fontFamilies.map(font =>
 const darkModeToggle = document.getElementById("darkModeToggle");
 const html = document.documentElement;
 
-darkModeToggle.addEventListener("click", () => {
-    html.classList.toggle('dark');
-    updateDarkModeIcon();
-    updateEditableAreaBackground();
-});
-
+// Function to update the dark mode icon
 function updateDarkModeIcon() {
     const sunIcon = darkModeToggle.querySelector('.sun-icon');
     const moonIcon = darkModeToggle.querySelector('.moon-icon');
@@ -37,8 +32,31 @@ function updateDarkModeIcon() {
     }
 }
 
-// Call this function on page load to set the correct icon
-updateDarkModeIcon();
+// Function to update the editable area background
+function updateEditableAreaBackground() {
+    // Add your logic here if needed
+}
+
+// Event listener for dark mode toggle
+darkModeToggle.addEventListener("click", () => {
+    html.classList.toggle('dark');
+    updateDarkModeIcon();
+    updateEditableAreaBackground();
+});
+
+// Initialize the theme based on system preference
+function initializeTheme() {
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (prefersDarkScheme) {
+        html.classList.add('dark');
+    } else {
+        html.classList.remove('dark');
+    }
+    updateDarkModeIcon();
+}
+
+// Call the initializeTheme function on page load
+initializeTheme();
 
 
 const toggleLines = document.getElementById('toggleLines');
