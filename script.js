@@ -62,6 +62,9 @@ function applyFont(fontFamily) {
 window.onload = function() {
     const defaultFont = 'handwriting1';
     applyFont(defaultFont);
+    if (window.innerWidth <= 640) {
+        alert("For the best experience, please use a laptop or desktop.");
+    }
 };
 
 fontSelect.addEventListener('change', function() {
@@ -278,3 +281,4 @@ document.querySelector('.coffee-image img').addEventListener('click', function()
     // Start the shadow effect toggling
     toggleShadow(2);
 });
+

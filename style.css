@@ -49,13 +49,12 @@ body {
 }
 
 .side{
-    height: 97%;
+    height: 95%;
 }
 
 .main-area {
     transform: scale(0.95);
     transform-origin: top left;
-    /* width: 50vw; */
 }
 
 .editable-area {
@@ -212,4 +211,61 @@ body {
 .kofi-button:hover img {
     filter: brightness(0.95); 
 
+}
+
+@media (max-width: 640px) {
+
+    .main-div{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+      .side {
+        width: 100%;
+        height: auto;
+    }
+
+
+    .main-div {
+        height: auto;
+    }
+
+    .editable-area {
+        width: 100%;
+        min-width: 100%;
+        overflow-y:hidden;
+    }
+
+    .margin-overlay {
+        width: 50px; /* Adjust margin overlay width for smaller screens */
+    }
+}
+
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .side {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-area {
+        transform: scale(0.95);
+        transform-origin: top left;
+        width: 100%;
+    }
+
+    .main-div {
+        height: auto;
+    }
+
+    .editable-area {
+        transform-origin: top left;
+        width: auto;
+        overflow: hidden;
+    }
+
+    .coffee {
+        transform: scale(0.6);
+        transform-origin: center;
+        margin: 0 auto;
+    }
 }
