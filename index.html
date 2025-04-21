@@ -1,279 +1,415 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Meta Basics -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text to Own Handwriting Converter | Free Online Tool</title>
-    <meta name="description" content="Convert your text to realistic handwriting with our free online tool. Customize fonts, colors, and paper styles. Download as image or PDF. Try it now!">
-    <link rel="canonical" href="https://texttoownhandwriting.netlify.app/">
+    <meta
+      name="description"
+      content="Convert your text to realistic handwriting. Customize fonts, colors, and paper styles. Download as image or PDF. No sign-up needed."
+    />
+    <link rel="canonical" href="https://texttoownhandwriting.netlify.app/" />
+    <link rel="icon" href="./images/icon.png" type="image/x-icon" />
+
+    <!-- Tailwind + Custom CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="./images/icon.png">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://texttoownhandwriting.netlify.app/">
-    <meta property="og:title" content="Text to Own Handwriting Converter | Free Online Tool">
-    <meta property="og:description" content="Transform your digital text into personalized handwriting. Customize fonts, colors, and paper styles. Free to use, no sign-up required!">
-    <meta property="og:image" content="https://texttoownhandwriting.netlify.app/images/og-image.jpg">
+    <link rel="stylesheet" href="style.css" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://texttoownhandwriting.netlify.app/">
-    <meta property="twitter:title" content="Text to Own Handwriting Converter | Free Online Tool">
-    <meta property="twitter:description" content="Transform your digital text into personalized handwriting. Customize fonts, colors, and paper styles. Free to use, no sign-up required!">
-    <meta property="twitter:image" content="https://texttoownhandwriting.netlify.app/images/twitter-image.jpg">
+    <!-- FontAwesome (icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnH2N2wH9ZT5F1v5xEMsL+vW8f0X1lJ1X9ZrU1tSh6t6BHEsRpUOXJf9qD02KNq0Bzr3gQ5Fg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://texttoownhandwriting.netlify.app/"
+    />
+    <meta
+      property="og:title"
+      content="Text to Own Handwriting Converter | Free Online Tool"
+    />
+    <meta
+      property="og:description"
+      content="Transform your text into realistic handwriting. Free tool. No login required. Customize fonts, colors, and papers."
+    />
+    <meta
+      property="og:image"
+      content="https://texttoownhandwriting.netlify.app/images/og-image.jpg"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://texttoownhandwriting.netlify.app/"
+    />
+    <meta
+      name="twitter:title"
+      content="Text to Own Handwriting Converter | Free Online Tool"
+    />
+    <meta
+      name="twitter:description"
+      content="Convert your digital text into realistic handwriting. Customize styles. Download as image or PDF."
+    />
+    <meta
+      name="twitter:image"
+      content="https://texttoownhandwriting.netlify.app/images/twitter-image.jpg"
+    />
+
+    <!-- Structured Data (SEO) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Text to Own Handwriting Converter",
-      "description": "Convert your text to realistic handwriting with customizable fonts, colors, and paper styles. Download as image or PDF.",
-      "url": "https://texttoownhandwriting.netlify.app/",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        dark: {
-                            bg: '#1a202c',
-                            text: '#e2e8f0',
-                            primary: '#4a5568',
-                            secondary: '#2d3748',
-                            accent: '#ed8936',
-                        },
-                    },
-                },
-            },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Text to Own Handwriting Converter",
+        "description": "Convert your text to realistic handwriting with customizable fonts, colors, and paper styles. Download as image or PDF.",
+        "url": "https://texttoownhandwriting.netlify.app/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
         }
+      }
     </script>
-</head>
 
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              dark: {
+                bg: '#1a202c',
+                text: '#e2e8f0',
+                primary: '#4a5568',
+                secondary: '#2d3748',
+                accent: '#ed8936',
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
 
-
-<body class="bg-gray-100 dark:bg-dark-bg transition-colors duration-200">
+  <body class="bg-gray-100 dark:bg-dark-bg transition-colors duration-200">
     <header
-        class="flex justify-between items-center p-4 bg-white dark:bg-dark-secondary shadow-md transition-colors duration-200">
-        <h1 class="text-3xl font-bold text-gray-800 dark:text-dark-text">Text to Own Handwriting</h1>
-        <button id="darkModeToggle"
-            class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-dark-secondary transition-colors duration-200">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sun-icon text-yellow-500 dark:block hidden"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6 moon-icon text-gray-900 dark:text-gray-300 block dark:hidden" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </button>
+      class="flex justify-between items-center p-4 bg-white dark:bg-dark-secondary shadow-md transition-colors duration-200"
+    >
+      <h1 class="text-3xl font-bold text-gray-800 dark:text-dark-text">
+        Text to Own Handwriting
+      </h1>
+      <button
+        id="darkModeToggle"
+        class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-dark-secondary transition-colors duration-200"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 sun-icon text-yellow-500 dark:block hidden"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 moon-icon text-gray-900 dark:text-gray-300 block dark:hidden"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
     </header>
     <p class="intro text-center text-gray-800 dark:text-dark-text">
-        Text to Own Handwriting converter is a free online tool for converting your computer texts into human
-        handwriting text and downloading them as image or PDF for different handwriting font types, ink colors and
-        papers.
+      Text to Own Handwriting converter is a free online tool for converting
+      your computer texts into human handwriting text and downloading them as
+      image or PDF for different handwriting font types, ink colors and papers.
     </p>
 
     <main class="main-div flex flex-row justify-around gap-5">
-        <div class="main-area">
-            <div id="mainText" class="editable-area rounded-sm">
-                <div class="margin-overlay"></div>
-                <div class="content" contenteditable="true">
-                    <p>Welcome to Text to Own Handwriting Converter.</p>
-                    <br>
-                    <p>Type or paste your text below to see it transformed into human handwriting style.</p>
-                    <br>
-                    <p>Explore the customization options to adjust font, color, and more.</p>
-                    <br>
-                    <p>Check out the "How to use?" section for detailed instructions and tips.</p>
-                    <p>Once you're satisfied, generate an image or download a PDF of your handwritten text.</p>
-                    <p>Enjoy the personalized touch of your human handwriting!</p>
-                </div>
+      <div class="main-area">
+        <div id="mainText" class="editable-area rounded-sm">
+          <div class="margin-overlay"></div>
+          <div class="content" contenteditable="true">
+            <p>Welcome to Text to Own Handwriting Converter.</p>
+            <br />
+            <p>
+              Type or paste your text below to see it transformed into human
+              handwriting style.
+            </p>
+            <br />
+            <p>
+              Explore the customization options to adjust font, color, and more.
+            </p>
+            <br />
+            <p>
+              Check out the "How to use?" section for detailed instructions and
+              tips.
+            </p>
+            <p>
+              Once you're satisfied, generate an image or download a PDF of your
+              handwritten text.
+            </p>
+            <p>Enjoy the personalized touch of your human handwriting!</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="side lg:w-1/3 bg-white dark:bg-dark-secondary p-6 rounded-lg shadow-md"
+      >
+        <div class="how-to-use bg-white p-6 rounded-lg shadow-md">
+          <div class="mb-2">
+            <h2 class="text-lg font-semibold mb-2 text-gray-800">
+              How to use?
+            </h2>
+            <ul class="list-decimal list-inside text-gray-600 space-y-1">
+              <li>Type or paste things in the paper.</li>
+              <li>
+                You can easily download image or pdf, scrolling a bit down.
+              </li>
+              <li>
+                You can also customize the text color, size but make sure to see
+                info button beside the tool you are using.
+              </li>
+              <li>
+                You can also using your own handwriting font, by making it
+                through different sites like calligraphr.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="m-2"></div>
+        <div class="customization bg-white p-6 rounded-lg shadow-md">
+          <div class="mb-2">
+            <h3 class="text-lg font-semibold text-gray-800 inline">
+              Customization
+            </h3>
+            <small class="text-gray-600">(Optional)</small>
+          </div>
+
+          <div
+            class="controls flex flex-col items-start gap-2 border border-slate-300 rounded-md pl-3 py-1"
+          >
+            <label>
+              <input type="checkbox" id="toggleLines" checked />
+              <span class="ml-1 text-gray-800"
+                >Show Background Paper Lines</span
+              >
+            </label>
+            <label>
+              <input type="checkbox" id="toggleMargin" checked />
+              <span class="ml-1 text-gray-800">Show margin</span>
+            </label>
+          </div>
+
+          <div class="font-color flex gap-3 content-center mb-3 mt-3">
+            <label for="fontColor" class="text-gray-800 dark:text-gray-200 mb-1"
+              >Ink Color:</label
+            >
+            <select
+              id="fontColor"
+              class="px-1.5 border border-gray-300 dark:border-gray-600 bg-slate-50 dark:bg-gray-700 hover:bg-slate-100 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 cursor-pointer rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+            >
+              <option value="black">Black</option>
+              <option value="blue">Blue</option>
+              <option value="red">Red</option>
+              <option value="green">Green</option>
+            </select>
+          </div>
+
+          <div
+            class="flex flex-col items-start gap-2 border border-slate-300 dark:border-gray-600 rounded-md p-3 mb-3"
+          >
+            <div class="font-choose flex gap-4">
+              <label
+                for="preuploadedFonts"
+                class="text-gray-800 dark:text-gray-200 mb-1"
+                >Choose Handwriting:</label
+              >
+              <select
+                id="preuploadedFonts"
+                class="border border-gray-300 dark:border-gray-600 bg-slate-50 dark:bg-gray-700 hover:bg-slate-100 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 cursor-pointer rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+              >
+                <option value="handwriting1">Handwriting 1</option>
+                <option value="handwriting2">Handwriting 2</option>
+                <option value="handwriting3">Handwriting 3</option>
+                <option value="handwriting4">Handwriting 4</option>
+                <option value="handwriting5">Handwriting 5</option>
+              </select>
             </div>
+            <div class="font-upload">
+              <label
+                for="uploadFont"
+                class="text-gray-800 dark:text-gray-200 mb-1"
+                >Upload Your Own Handwriting Font:</label
+              >
+              <input
+                type="file"
+                id="uploadFont"
+                class="text-xs text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-sm file:font-light file:bg-blue-50 dark:file:bg-blue-900 file:text-blue-800 dark:file:text-blue-200 hover:file:bg-blue-100 dark:hover:file:bg-blue-800"
+              />
+            </div>
+          </div>
+
+          <!--  -->
+          <div
+            class="flex flex-row justify-between items-start border border-slate-300 rounded-md p-3 pr-0 mb-3"
+          >
+            <div class="flex flex-col gap-3">
+              <div class="flex items-center">
+                <label for="fontSize" class="mr-2">Letter Size:</label>
+                <input
+                  type="range"
+                  id="fontSize"
+                  min="14"
+                  max="40"
+                  value="24"
+                  class="mr-3"
+                />
+                <span id="fontSizeValue">24px</span>
+              </div>
+              <div class="line-shift">
+                <label for="lineShift" class="mr-2"
+                  >Change Background Line Position:
+                </label>
+                <input
+                  type="range"
+                  id="lineShift"
+                  min="-40"
+                  max="40"
+                  value="0"
+                  class="mr-2"
+                />
+                <span id="lineShiftValue">0</span>
+              </div>
+            </div>
+            <div class="tooltip ml-2">
+              <i class="fas fa-info-circle"></i>
+              <span class="tooltiptext">
+                After adjusting font size, make sure to shift background lines
+                as per need.
+              </span>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-row justify-between border border-slate-300 rounded-md p-2 pr-0 mb-3"
+          >
+            <div class="flex items-center">
+              <label for="lineHeight" class="mr-2">Line Gap:</label>
+              <input
+                type="range"
+                id="lineHeight"
+                min="0.5"
+                max="3"
+                step="0.1"
+                value="1.5"
+                class="mr-3"
+              />
+              <span id="lineHeightValue">1.5</span>
+            </div>
+
+            <div class="tooltip ml-2">
+              <i class="fas fa-info-circle"></i>
+              <span class="tooltiptext"
+                >Change line height with no background lines, else it will be a
+                mess.</span
+              >
+            </div>
+          </div>
         </div>
 
-        <div class="side lg:w-1/3 bg-white dark:bg-dark-secondary p-6 rounded-lg shadow-md">
-            <div class="how-to-use  bg-white p-6 rounded-lg shadow-md">
-                <div class="mb-2">
-                    <h2 class="text-lg font-semibold mb-2 text-gray-800">How to use?</h2>
-                    <ul class="list-decimal list-inside text-gray-600 space-y-1">
-                        <li>Type or paste things in the paper.</li>
-                        <li>You can easily download image or pdf, scrolling a bit down.</li>
-                        <li>You can also customize the text color, size but make sure to see info button beside the tool
-                            you
-                            are using.</li>
-                        <li>You can also using your own handwriting font, by making it through different sites like
-                            calligraphr.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="m-2">
-
-            </div>
-            <div class="customization  bg-white p-6 rounded-lg shadow-md">
-                <div class="mb-2">
-                    <h3 class="text-lg font-semibold  text-gray-800 inline">Customization</h3>
-                    <small class="text-gray-600 ">(Optional)</small>
-                </div>
-
-                <div class="controls flex flex-col items-start gap-2 border border-slate-300 rounded-md pl-3 py-1">
-                    <label>
-                        <input type="checkbox" id="toggleLines" checked>
-                        <span class="ml-1 text-gray-800">Show Background Paper Lines</span>
-                    </label>
-                    <label>
-                        <input type="checkbox" id="toggleMargin" checked>
-                        <span class="ml-1 text-gray-800">Show margin</span>
-                    </label>
-                </div>
-
-                <div class="font-color flex  gap-3 content-center mb-3 mt-3">
-                    <label for="fontColor" class=" text-gray-800 dark:text-gray-200  mb-1">Ink Color:</label>
-                    <select id="fontColor"
-                        class="px-1.5 border border-gray-300 dark:border-gray-600 bg-slate-50 dark:bg-gray-700 hover:bg-slate-100 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 cursor-pointer rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400">
-                        <option value="black">Black</option>
-                        <option value="blue">Blue</option>
-                        <option value="red">Red</option>
-                        <option value="green">Green</option>
-                    </select>
-                </div>
-
-                <div
-                    class="flex flex-col items-start gap-2 border border-slate-300 dark:border-gray-600 rounded-md p-3 mb-3">
-                    <div class="font-choose flex gap-4">
-                        <label for="preuploadedFonts" class="text-gray-800 dark:text-gray-200 mb-1">Choose
-                            Handwriting:</label>
-                        <select id="preuploadedFonts"
-                            class="border border-gray-300 dark:border-gray-600 bg-slate-50 dark:bg-gray-700 hover:bg-slate-100 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 cursor-pointer rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400">
-                            <option value="handwriting1">Handwriting 1</option>
-                            <option value="handwriting2">Handwriting 2</option>
-                            <option value="handwriting3">Handwriting 3</option>
-                            <option value="handwriting4">Handwriting 4</option>
-                            <option value="handwriting5">Handwriting 5</option>
-                        </select>
-                    </div>
-                    <div class="font-upload">
-                        <label for="uploadFont" class="text-gray-800 dark:text-gray-200 mb-1">Upload Your Own
-                            Handwriting Font:</label>
-                        <input type="file" id="uploadFont"
-                            class="text-xs text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-sm file:font-light file:bg-blue-50 dark:file:bg-blue-900 file:text-blue-800 dark:file:text-blue-200 hover:file:bg-blue-100 dark:hover:file:bg-blue-800">
-                    </div>
-                </div>
-
-
-                <!--  -->
-                <div
-                    class=" flex flex-row justify-between items-start border border-slate-300 rounded-md p-3 pr-0 mb-3 ">
-                    <div class="flex flex-col gap-3">
-                        <div class="flex items-center">
-                            <label for="fontSize" class="mr-2">Letter Size:</label>
-                            <input type="range" id="fontSize" min="14" max="40" value="24" class="mr-3">
-                            <span id="fontSizeValue">24px</span>
-                        </div>
-                        <div class="line-shift">
-                            <label for="lineShift" class="mr-2">Change Background Line Position: </label>
-                            <input type="range" id="lineShift" min="-40" max="40" value="0" class="mr-2">
-                            <span id="lineShiftValue">0</span>
-                        </div>
-                    </div>
-                    <div class="tooltip ml-2">
-                        <i class="fas fa-info-circle"></i>
-                        <span class="tooltiptext"> After adjusting font size, make sure to shift background lines as per
-                            need. </span>
-                    </div>
-                </div>
-
-                <div class=" flex flex-row justify-between border border-slate-300 rounded-md p-2 pr-0 mb-3">
-                    <div class="flex items-center">
-                        <label for="lineHeight" class="mr-2">Line Gap:</label>
-                        <input type="range" id="lineHeight" min="0.5" max="3" step="0.1" value="1.5" class="mr-3">
-                        <span id="lineHeightValue">1.5</span>
-                    </div>
-
-                    <div class="tooltip ml-2">
-                        <i class="fas fa-info-circle"></i>
-                        <span class="tooltiptext">Change line height with no background lines, else it will be a
-                            mess.</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="coffee-image mt-3 flex justify-center">
+        <!-- <div class="coffee-image mt-3 flex justify-center">
                 <img src="images/coffee.png" alt="Coffee Image"
                     class="w-1/4 rounded-lg  hover:bg-blue-50 transition-colors duration-200ms cursor-pointer">
-            </div>
-        </div>
+            </div> -->
+      </div>
     </main>
     <div class="flex justify-center mt-3 mb-3">
-        <button id="generate-btn"
-            class="px-6 py-3 bg-blue-600  text-white text-lg font-semibold rounded-2xl shadow-lg hover:bg-blue-700  transition-all duration-200">
-            Generate Image
-        </button>
+      <button
+        id="generate-btn"
+        class="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-2xl shadow-lg hover:bg-blue-700 transition-all duration-200"
+      >
+        Generate Image
+      </button>
     </div>
 
-
-    <div class="my-10"> </div>
+    <div class="my-10"></div>
     <h2 class="text-2xl font-semibold text-gray-800 px-4">Generated Images</h2>
 
-
     <div class="bg-white p-4 px-6 rounded-lg shadow-md mt-2">
-        <div class="flex justify-between items-center mb-2">
-            <span class="text-sm text-gray-600">Number of Generated Images: <span id="imageCount">0</span></span>
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-sm text-gray-600"
+          >Number of Generated Images: <span id="imageCount">0</span></span
+        >
+      </div>
+      <div class="border-t border-gray-200 pt-4">
+        <h3 class="text-lg font-medium text-gray-600 mb-2">
+          List of Generated Images:
+        </h3>
+        <div class="image-container">
+          <!-- Images will be appended here -->
         </div>
-        <div class="border-t border-gray-200 pt-4">
-            <h3 class="text-lg font-medium text-gray-600 mb-2">List of Generated Images:</h3>
-            <div class="image-container ">
-                <!-- Images will be appended here -->
-            </div>
-        </div>
+      </div>
     </div>
 
     <div class="flex justify-center mt-10 mb-3">
-        <button id="download-pdf-btn"
-            class="px-6 py-3 bg-green-600 text-white text-lg font-semibold rounded-2xl shadow-lg hover:bg-green-700 transition-all duration-200">
-            Download all Images as PDF
-        </button>
+      <button
+        id="download-pdf-btn"
+        class="px-6 py-3 bg-green-600 text-white text-lg font-semibold rounded-2xl shadow-lg hover:bg-green-700 transition-all duration-200"
+      >
+        Download all Images as PDF
+      </button>
     </div>
 
     <div class="flex justify-center mt-3 mb-3">
-        <a href="https://ko-fi.com/asmitphuyal" target="_blank" class="kofi-button">
-            <img src="./images/buymeacoffee.png" alt="Buy Me a Coffee" style="height: 38px;">
-        </a>
+      <a
+        href="https://ko-fi.com/asmitphuyal"
+        target="_blank"
+        class="kofi-button"
+      >
+        <img
+          src="./images/buymeacoffee.png"
+          alt="Buy Me a Coffee"
+          style="height: 38px"
+        />
+      </a>
     </div>
 
     <!-- <footer class="bg-white p-4 mt-10 text-center"></footer>
         <p>&copy; 2024 Text to Own Handwriting Converter. All rights reserved.</p>
     </footer> -->
 
-
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-
-
-</body>
-
+  </body>
 </html>
