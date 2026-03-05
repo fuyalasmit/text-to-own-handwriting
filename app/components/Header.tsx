@@ -32,16 +32,18 @@ export default function Header({ darkMode, onToggleDark }: HeaderProps) {
                 {/* Logo */}
                 <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                     <div>
-                        <div
+                        <h1
                             style={{
                                 fontWeight: 700,
                                 fontSize: 16,
                                 color: "var(--text-primary)",
                                 lineHeight: 1.2,
                                 letterSpacing: "-0.02em",
+                                margin: 0,
+                                padding: 0,
                             }}>
                             Text to Handwriting
-                        </div>
+                        </h1>
                         <div
                             style={{
                                 fontSize: 11,

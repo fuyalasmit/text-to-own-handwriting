@@ -6,16 +6,21 @@ const BASE_URL = "https://texttohandwriting.asmitphuyal.com.np";
 export const metadata: Metadata = {
     metadataBase: new URL(BASE_URL),
     title: {
-        default: "Text to Own Handwriting Converter | Free Online Tool",
-        template: "%s | Text to Own Handwriting",
+        default: "Text to Handwriting Converter — Convert Text to Your Own Handwriting Free",
+        template: "%s | Text to Handwriting Converter",
     },
     description:
-        "Free online tool to convert typed text into realistic handwriting. Choose from multiple handwriting styles, customize ink color and font size, and export as PNG or PDF. No signup required.",
+        "Free online tool to convert any typed text into realistic handwriting instantly. Choose your style, customize ink color and font size, export as PNG or PDF. No signup, no watermark.",
     keywords: [
         "text to handwriting",
-        "text to own handwriting",
         "text to handwriting converter",
+        "text to own handwriting",
+        "text to own handwriting converter",
         "text to human handwriting",
+        "text to human handwriting converter",
+        "text to my handwriting",
+        "text to my handwriting converter",
+        "text to custom handwriting converter",
         "convert text to handwriting",
         "text to handwriting online",
         "handwriting generator",
@@ -29,11 +34,11 @@ export const metadata: Metadata = {
         canonical: BASE_URL,
     },
     openGraph: {
-        title: "Text to Own Handwriting — Convert Text to Realistic Handwriting Online",
+        title: "Text to Handwriting Converter — Convert Typed Text to Your Own Handwriting Free",
         description:
-            "Free online tool to convert your typed text into realistic handwriting. Multiple styles, custom fonts, export as PNG or PDF. No signup required.",
+            "Free online tool to convert any typed text into realistic handwriting instantly. Multiple styles, custom fonts, export as PNG or PDF. No signup, no watermark.",
         url: BASE_URL,
-        siteName: "Text to Own Handwriting",
+        siteName: "Text to Handwriting Converter",
         type: "website",
         locale: "en_US",
         images: [
@@ -41,14 +46,15 @@ export const metadata: Metadata = {
                 url: "/opengraph-image",
                 width: 1200,
                 height: 630,
-                alt: "Text to Own Handwriting — Convert Text to Realistic Handwriting",
+                alt: "Text to Handwriting Converter — Convert typed text to realistic handwriting online free",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
-        title: "Text to Own Handwriting",
-        description: "Convert your typed text into realistic handwriting. Free, no signup, export as PNG or PDF.",
+        title: "Text to Handwriting Converter — Free Online Tool",
+        description:
+            "Convert any typed text into realistic handwriting instantly. Free, no signup, no watermark — export as PNG or PDF.",
         images: ["/opengraph-image"],
     },
     robots: {
@@ -70,7 +76,47 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body>{children}</body>
+            <body>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "WebApplication",
+                            name: "Text to Handwriting Converter",
+                            url: BASE_URL,
+                            description:
+                                "Free online tool to convert any typed text into realistic handwriting instantly. Choose your style, customize ink color and font size, export as PNG or PDF. No signup, no watermark.",
+                            applicationCategory: "UtilitiesApplication",
+                            operatingSystem: "Web",
+                            browserRequirements: "Requires JavaScript",
+                            offers: {
+                                "@type": "Offer",
+                                price: "0",
+                                priceCurrency: "USD",
+                            },
+                            author: {
+                                "@type": "Person",
+                                name: "Asmit Phuyal",
+                                url: "https://asmitphuyal.com.np",
+                            },
+                            featureList: [
+                                "Multiple handwriting font styles",
+                                "Custom font upload (.ttf)",
+                                "Adjustable font size",
+                                "Custom ink color",
+                                "Ruled lines and margin",
+                                "Export as PNG",
+                                "Export as PDF",
+                                "Multi-page support",
+                                "No signup required",
+                                "No watermark",
+                            ],
+                        }),
+                    }}
+                />
+                {children}
+            </body>
         </html>
     );
 }
