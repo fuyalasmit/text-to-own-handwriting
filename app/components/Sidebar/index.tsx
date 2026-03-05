@@ -147,6 +147,16 @@ export default function Sidebar({ state, onChange, onCustomFontUpload, pageCount
                         style={{ display: "none" }}
                         onChange={handleFontUpload}
                     />
+                    <p style={{ fontSize: 11, color: "var(--text-muted)", marginTop: 6 }}>
+                        Make your own font at{" "}
+                        <a
+                            href="https://www.calligraphr.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: "var(--accent)", textDecoration: "underline" }}>
+                            calligraphr.com
+                        </a>
+                    </p>
                 </div>
             </Section>
 
