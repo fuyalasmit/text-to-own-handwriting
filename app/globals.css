@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* ─── Handwriting Fonts ─────────────────────────────────────── */
+@font-face {
+  font-family: "handwriting1";
+  src: url("/fonts/handwriting1.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "handwriting2";
+  src: url("/fonts/handwriting2.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "handwriting3";
+  src: url("/fonts/handwriting3.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "handwriting4";
+  src: url("/fonts/handwriting4.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "handwriting5";
+  src: url("/fonts/handwriting5.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-page:    #F0EBE1;
+  --bg-surface: rgba(255, 255, 255, 0.65);
+  --bg-glass:   rgba(255, 255, 255, 0.45);
+
+  /* Text */
+  --text-primary:   #1A1A1A;
+  --text-secondary: #5C5C5C;
+  --text-muted:     #9A9A9A;
+
+  /* Accent — deep forest green (ink-like) */
+  --accent:       #2D6A4F;
+  --accent-light: #52B788;
+  --accent-hover: #245A41;
+
+  /* Borders */
+  --border:       #D9D0C3;
+  --border-light: #EDE7DC;
+
+  /* Paper */
+  --paper-bg:        #FDFAF5;
+  --paper-line:      #C8D8E8;
+  --paper-margin:    #F4A3A3;
+  --paper-shadow:    rgba(0, 0, 0, 0.12);
+}
+
+.dark {
+  --bg-page:    #0D0D0D;
+  --bg-surface: rgba(26, 26, 26, 0.75);
+  --bg-glass:   rgba(30, 30, 30, 0.55);
+
+  --text-primary:   #F0EDE8;
+  --text-secondary: #A8A8A8;
+  --text-muted:     #666666;
+
+  --accent:       #52B788;
+  --accent-light: #74C69D;
+  --accent-hover: #40916C;
+
+  --border:       #2A2A2A;
+  --border-light: #333333;
+
+  --paper-bg:     #FDFAF5;
+  --paper-line:   #C8D8E8;
+  --paper-margin: #F4A3A3;
+  --paper-shadow: rgba(0, 0, 0, 0.45);
+}
+
+/* ─── Base ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100dvh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Glassmorphism utility ─────────────────────────────────── */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid var(--border);
+}
+
+/* ─── Paper texture overlay (subtle noise) ──────────────────── */
+.paper-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ─── Focus ring ────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
