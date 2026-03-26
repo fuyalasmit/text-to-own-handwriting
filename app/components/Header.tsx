@@ -50,7 +50,7 @@ export default function Header({ darkMode, onToggleDark }: HeaderProps) {
                                 color: "var(--text-muted)",
                                 lineHeight: 1.3,
                             }}>
-                            Convert your text into realistic handwriting — download as PNG or PDF
+                            Convert your text into realistic handwriting — free, no watermark.
                         </div>
                     </div>
                 </div>

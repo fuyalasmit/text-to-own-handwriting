@@ -10,7 +10,7 @@ export const metadata: Metadata = {
         template: "%s | Text to Handwriting Converter",
     },
     description:
-        "Free online tool to convert any typed text into realistic handwriting instantly. Choose your style, customize ink color and font size, export as PNG or PDF. No signup, no watermark.",
+        "Free online tool to convert any text into realistic handwriting.  No signup, no watermark. Choose your font, customize ink color and font size, export as PNG or PDF.",
     keywords: [
         "text to handwriting",
         "text to handwriting converter",

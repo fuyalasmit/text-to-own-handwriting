@@ -53,7 +53,7 @@ export default function StaticSEOSection() {
                 </div>
 
                 {/* How it works */}
-                <div>
+                <div data-nosnippet>
                     <h2
                         style={{
                             fontSize: 16,
@@ -107,7 +107,7 @@ export default function StaticSEOSection() {
                 </div>
 
                 {/* FAQ */}
-                <div>
+                <div data-nosnippet>
                     <h2
                         style={{
                             fontSize: 16,
