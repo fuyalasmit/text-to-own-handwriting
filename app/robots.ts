@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://texttohandwriting.asmitphuyal.com.np";
+const BASE_URL = "https://texttoownhandwriting.netlify.app";
 
 export default function robots(): MetadataRoute.Robots {
     return {

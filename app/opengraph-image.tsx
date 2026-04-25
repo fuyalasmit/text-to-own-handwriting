@@ -101,7 +101,7 @@ export default function Image() {
                         color: "#8C7B68",
                         margin: 0,
                     }}>
-                    texttohandwriting.asmitphuyal.com.np
+                    texttoownhandwriting.netlify.app
                 </p>
             </div>
         </div>,

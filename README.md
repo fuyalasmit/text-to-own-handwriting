@@ -18,4 +18,4 @@ pnpm dev
 
 ## Live Demo
 
-[texttohandwriting.asmitphuyal.com.np](https://texttohandwriting.asmitphuyal.com.np)
+[texttoownhandwriting.netlify.app](https://texttoownhandwriting.netlify.app)
