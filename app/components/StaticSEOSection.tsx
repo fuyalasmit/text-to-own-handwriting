@@ -47,7 +47,7 @@ export default function StaticSEOSection() {
                         Text to Handwriting Converter
                     </h2>
                     <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.8, margin: 0 }}>
-                        Type any text and it turns into handwriting on a ruled paper page. Pick a style, adjust the size
+                        Type any text and it turns into handwriting on a paper page. Pick a style, adjust the size
                         and ink color, then download as PNG or PDF. Free, no signup, no watermark.
                     </p>
                 </div>

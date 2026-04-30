@@ -42,7 +42,7 @@ export default function Header({ darkMode, onToggleDark }: HeaderProps) {
                                 margin: 0,
                                 padding: 0,
                             }}>
-                            Text to Handwriting
+                            Text to Own Handwriting
                         </h1>
                         <div
                             style={{
@@ -50,7 +50,7 @@ export default function Header({ darkMode, onToggleDark }: HeaderProps) {
                                 color: "var(--text-muted)",
                                 lineHeight: 1.3,
                             }}>
-                            Convert your text into realistic handwriting — free, no watermark.
+                            Convert text into your own handwriting.
                         </div>
                     </div>
                 </div>
