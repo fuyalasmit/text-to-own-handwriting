@@ -12,6 +12,14 @@ import { useCallback, useState } from "react";
  *   exportPNG(containerRef.current);
  *   exportPDF(containerRef.current);
  */
+/**
+ * Drops nodes marked data-export-ignore from the capture, so on-screen hints
+ * (like the intro text on the blank page) never end up in a saved file.
+ */
+function excludeFromExport(node: HTMLElement): boolean {
+    return node?.dataset?.exportIgnore !== "true";
+}
+
 export function useExport() {
     const [isExporting, setIsExporting] = useState(false);
 
@@ -25,6 +33,7 @@ export function useExport() {
             const dataUrl = await toPng(pageEl, {
                 pixelRatio: 2, // 2× for crisp output
                 cacheBust: true,
+                filter: excludeFromExport,
             });
             triggerDownload(dataUrl, fileName);
         } catch (err) {
@@ -51,7 +60,11 @@ export function useExport() {
             const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
 
             for (let i = 0; i < pageEls.length; i++) {
-                const dataUrl = await toPng(pageEls[i], { pixelRatio: 2, cacheBust: true });
+                const dataUrl = await toPng(pageEls[i], {
+                    pixelRatio: 2,
+                    cacheBust: true,
+                    filter: excludeFromExport,
+                });
 
                 if (i > 0) pdf.addPage();
                 pdf.addImage(dataUrl, "PNG", 0, 0, A4_W, A4_H);

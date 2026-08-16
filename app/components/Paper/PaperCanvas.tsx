@@ -113,6 +113,7 @@ export default function PaperCanvas({
                             showLines={showLines}
                             showMargin={showMargin}
                             padding={padding}
+                            showPlaceholder={i === 0 && !text.trim()}
                         />
                     </div>
                 </div>
@@ -127,7 +128,12 @@ export default function PaperCanvas({
  * Preserves manual newlines and wraps long lines using an approximation
  * (canvas measureText would be more accurate but requires DOM access).
  */
-function splitTextIntoPages(text: string, linesPerPage: number, fontSize: number, usableWidth: number): string[] {
+function splitTextIntoPages(
+    text: string,
+    linesPerPage: number,
+    fontSize: number,
+    usableWidth: number,
+): string[] {
     if (!text.trim()) return [""];
 
     const avgCharWidth = fontSize * 0.38;

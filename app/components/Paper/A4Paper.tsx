@@ -25,7 +25,30 @@ interface A4PaperProps {
      * [top, right, bottom, left]
      */
     padding?: [number, number, number, number];
+    /**
+     * Render the intro/how-to hint on the blank page.
+     * Only the first page should set this, and only while the editor is empty.
+     */
+    showPlaceholder?: boolean;
 }
+
+/**
+ * Shown on the empty page so the first thing a visitor sees explains the tool.
+ * Written as discrete lines because the text area is `pre-wrap` — each entry
+ * lands on its own ruled line. Keep this at 9 lines or fewer so it still fits
+ * the page at larger font sizes.
+ */
+const PLACEHOLDER_LINES = [
+    "Text to Handwriting Converter",
+    "Turn typed text into real handwriting.",
+    "Free. No signup, no watermark.",
+    "",
+    "How to use",
+    "1. Type or paste your text in the panel.",
+    "2. Pick a handwriting style.",
+    "3. Set the size, ink colour and lines.",
+    "4. Save as PNG or PDF.",
+];
 
 /**
  * A4 Paper component.
@@ -37,7 +60,17 @@ interface A4PaperProps {
  * forwardRef is used so the parent can pass the element to html-to-image for export.
  */
 const A4Paper = forwardRef<HTMLDivElement, A4PaperProps>(function A4Paper(
-    { text, fontFamily, fontSize, lineHeightMultiplier, inkColor, showLines, showMargin, padding = [48, 24, 48, 80] },
+    {
+        text,
+        fontFamily,
+        fontSize,
+        lineHeightMultiplier,
+        inkColor,
+        showLines,
+        showMargin,
+        padding = [48, 24, 48, 80],
+        showPlaceholder = false,
+    },
     ref,
 ) {
     const [paddingTop, paddingRight, paddingBottom, paddingLeft] = padding;
@@ -72,7 +105,9 @@ const A4Paper = forwardRef<HTMLDivElement, A4PaperProps>(function A4Paper(
                 flexShrink: 0,
             }}>
             {/* Ruled lines — rendered behind text */}
-            {showLines && <RuledLines paperHeight={A4_HEIGHT_PX} lineGap={lineGap} offsetTop={ruledLineOffset} />}
+            {showLines && (
+                <RuledLines paperHeight={A4_HEIGHT_PX} lineGap={lineGap} offsetTop={ruledLineOffset} />
+            )}
 
             {/* Margin line */}
             {showMargin && <MarginLine left={marginLineLeft} />}
@@ -99,6 +134,13 @@ const A4Paper = forwardRef<HTMLDivElement, A4PaperProps>(function A4Paper(
                     WebkitUserSelect: "none",
                 }}>
                 {text || null}
+
+                {/* Hint on the blank page. data-export-ignore keeps it out of PNG/PDF captures. */}
+                {showPlaceholder && (
+                    <span data-export-ignore="true" style={{ opacity: 0.4 }}>
+                        {PLACEHOLDER_LINES.join("\n")}
+                    </span>
+                )}
             </div>
         </div>
     );
