@@ -3,9 +3,9 @@ import "./globals.css";
 import { faqs } from "./content/faqs";
 
 const BASE_URL = "https://texttoownhandwriting.netlify.app";
-// The site is served at the root, so every self-reference uses the trailing-slash
-// form. Canonical and sitemap must agree or Google picks one for us.
-const CANONICAL_URL = `${BASE_URL}/`;
+// Next normalizes the canonical for the root path and drops any trailing slash,
+// so keep every self-reference in that same form and the sitemap will match.
+const CANONICAL_URL = BASE_URL;
 
 export const metadata: Metadata = {
     metadataBase: new URL(BASE_URL),

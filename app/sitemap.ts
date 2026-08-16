@@ -9,7 +9,8 @@ const LAST_CONTENT_UPDATE = new Date("2026-08-16");
 export default function sitemap(): MetadataRoute.Sitemap {
     return [
         {
-            url: `${BASE_URL}/`,
+            // No trailing slash, matching the canonical Next emits for the root.
+            url: BASE_URL,
             lastModified: LAST_CONTENT_UPDATE,
             changeFrequency: "monthly",
             priority: 1,
