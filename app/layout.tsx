@@ -9,9 +9,11 @@ const CANONICAL_URL = BASE_URL;
 
 export const metadata: Metadata = {
     metadataBase: new URL(BASE_URL),
+    // Leads with "own", which historically converted at ~47% against ~4% for the
+    // generic phrasing, and stays short enough to survive SERP truncation.
     title: {
-        default: "Text to Handwriting Converter — Convert Text to Your Own Handwriting Free",
-        template: "%s | Text to Handwriting Converter",
+        default: "Text to Own Handwriting Converter — Free, No Signup",
+        template: "%s | Text to Own Handwriting Converter",
     },
     description:
         "Free online tool to convert typed text into your own handwriting. Upload your custom font, choose ink color, export as PNG or PDF. No signup, no watermark.",
