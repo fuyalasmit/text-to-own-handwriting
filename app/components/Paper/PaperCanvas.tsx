@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import A4Paper from "./A4Paper";
-import { A4_WIDTH_PX, A4_HEIGHT_PX } from "../../types";
+import { A4_WIDTH_PX, A4_HEIGHT_PX, MAX_PAGES, NO_MARGIN_PADDING_LEFT } from "../../types";
+import { splitTextIntoPages } from "./paginate";
 
 interface PaperCanvasProps {
     text: string;
@@ -55,16 +56,42 @@ export default function PaperCanvas({
         return () => ro.disconnect();
     }, [updateScale]);
 
+    // ── Font readiness ──────────────────────────────────────────────────────
+    // Wrapping is measured against the active font. Until that font has loaded
+    // the browser measures with a fallback face and breaks lines in the wrong
+    // places, so re-run the split once it is ready.
+    const [fontRevision, setFontRevision] = useState(0);
+
+    useEffect(() => {
+        if (typeof document === "undefined" || !document.fonts) return;
+        let cancelled = false;
+        document.fonts
+            .load(`${fontSize}px "${fontFamily}"`)
+            .catch(() => undefined)
+            .then(() => {
+                if (!cancelled) setFontRevision((r) => r + 1);
+            });
+        return () => {
+            cancelled = true;
+        };
+    }, [fontFamily, fontSize]);
+
     // ── Text → pages split ──────────────────────────────────────────────────
     const lineGap = Math.round(fontSize * lineHeightMultiplier);
-    // A4Paper adds one extra lineGap to paddingTop, so subtract it here too
-    // to keep linesPerPage in sync with what actually fits on the paper.
-    const usableHeight = A4_HEIGHT_PX - (paddingTop + lineGap) - paddingBottom;
+    // Mirror A4Paper's geometry exactly. If these drift, text wraps against one
+    // width and renders at another, which is how pages end up over/underfilled.
+    const effectivePaddingTop = showLines ? paddingTop + lineGap : paddingTop;
+    const effectivePaddingLeft = showMargin ? paddingLeft : NO_MARGIN_PADDING_LEFT;
+    const usableHeight = A4_HEIGHT_PX - effectivePaddingTop - paddingBottom;
     const linesPerPage = Math.max(1, Math.floor(usableHeight / lineGap));
-    const usableWidth = A4_WIDTH_PX - paddingLeft - paddingRight;
+    const usableWidth = A4_WIDTH_PX - effectivePaddingLeft - paddingRight;
 
-    // We split by newlines first, then wrap long lines
-    const pages = splitTextIntoPages(text, linesPerPage, fontSize, usableWidth);
+    const { pages, truncated } = useMemo(
+        () => splitTextIntoPages(text, { linesPerPage, usableWidth, fontFamily, fontSize }),
+        // fontRevision is deliberate: it re-measures once the webfont has loaded.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [text, linesPerPage, usableWidth, fontFamily, fontSize, fontRevision],
+    );
 
     // ── Expose page refs to parent ──────────────────────────────────────────
     useEffect(() => {
@@ -118,51 +145,20 @@ export default function PaperCanvas({
                     </div>
                 </div>
             ))}
+
+            {truncated && (
+                <p
+                    style={{
+                        fontSize: 12,
+                        color: "var(--text-muted)",
+                        textAlign: "center",
+                        margin: "4px 16px 0",
+                        lineHeight: 1.6,
+                    }}>
+                    Showing the first {MAX_PAGES} pages. Shorten your text or reduce the font size to fit the
+                    rest.
+                </p>
+            )}
         </div>
     );
-}
-
-// ─── Text splitting ─────────────────────────────────────────────────────────
-/**
- * Splits text into page chunks based on linesPerPage.
- * Preserves manual newlines and wraps long lines using an approximation
- * (canvas measureText would be more accurate but requires DOM access).
- */
-function splitTextIntoPages(
-    text: string,
-    linesPerPage: number,
-    fontSize: number,
-    usableWidth: number,
-): string[] {
-    if (!text.trim()) return [""];
-
-    const avgCharWidth = fontSize * 0.38;
-    const charsPerLine = Math.max(10, Math.floor(usableWidth / avgCharWidth));
-
-    const rawLines = text.split("\n");
-
-    // Each slot is either a real text string or null (phantom line for wrapped height)
-    const allSlots: (string | null)[] = [];
-
-    for (const line of rawLines) {
-        if (line.length === 0) {
-            allSlots.push(""); // real blank line (user pressed Enter)
-            continue;
-        }
-        const estimatedLines = Math.ceil(line.length / charsPerLine);
-        allSlots.push(line); // real line — CSS will wrap it on the paper
-        for (let i = 1; i < estimatedLines; i++) {
-            allSlots.push(null); // phantom slot: just height budget, no text output
-        }
-    }
-
-    // Chunk slots into pages, then build page text from real slots only
-    const pages: string[] = [];
-    for (let i = 0; i < allSlots.length; i += linesPerPage) {
-        const chunk = allSlots.slice(i, i + linesPerPage);
-        const pageText = chunk.filter((s): s is string => s !== null).join("\n");
-        pages.push(pageText);
-    }
-
-    return pages.length > 0 ? pages : [""];
 }

@@ -31,5 +31,9 @@ export const BUILT_IN_FONTS: BuiltInFontMeta[] = [
 export const A4_WIDTH_PX = 794;
 export const A4_HEIGHT_PX = 1123;
 
+// Left padding used when the margin line is hidden, so text reclaims the space.
+// Shared so PaperCanvas can wrap against the same geometry A4Paper renders with.
+export const NO_MARGIN_PADDING_LEFT = 60;
+
 // How many pages are shown
 export const MAX_PAGES = 10;

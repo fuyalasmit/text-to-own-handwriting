@@ -3,7 +3,7 @@
 import React, { forwardRef } from "react";
 import RuledLines from "./RuledLines";
 import MarginLine from "./MarginLine";
-import { A4_WIDTH_PX, A4_HEIGHT_PX } from "../../types";
+import { A4_WIDTH_PX, A4_HEIGHT_PX, NO_MARGIN_PADDING_LEFT } from "../../types";
 
 interface A4PaperProps {
     /** The text content to render */
@@ -79,7 +79,7 @@ const A4Paper = forwardRef<HTMLDivElement, A4PaperProps>(function A4Paper(
     const lineGap = Math.round(fontSize * lineHeightMultiplier);
 
     // When margin line is off, shrink left padding so text uses more of the page
-    const effectivePaddingLeft = showMargin ? paddingLeft : 60;
+    const effectivePaddingLeft = showMargin ? paddingLeft : NO_MARGIN_PADDING_LEFT;
 
     // Margin line position sits 8px inside the left padding
     const marginLineLeft = paddingLeft - 8;
